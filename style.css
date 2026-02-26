@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+
+  /* gradient */
+  background: linear-gradient(135deg, #667eea, #764ba2, #ff758c);
+  background-size: 300% 300%; /* IMPORTANT */
+
+  /* animation */
+  animation: gradientShift 8s ease infinite;
+
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #333;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+}
+
+.form-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.22);
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2d3748;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 1.6rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 0.8rem;
+}
+
+button:hover {
+  background: #5a67d8;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.alert.success {
+  background: #e6fffa;
+  color: #0c8599;
+  border: 1px solid #99e9f2;
+}
+
+.alert.error {
+  background: #fff5f5;
+  color: #c92a2a;
+  border: 1px solid #ffa8a8;
+}
+
+.error-msg {
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  display: block;
+  min-height: 1.2em;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.8rem;
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+.login-link a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* ────────────────────────────────────────
+   Password Requirements Styling
+───────────────────────────────────────── */
+
+.password-requirements {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #718096;
+  padding: 0.9rem 1rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.password-requirements p {
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.password-requirements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.password-requirements li {
+  margin: 0.35rem 0;
+  padding-left: 1.6rem;
+  position: relative;
+  opacity: 0.6;
+  transform: translateY(4px);
+  transition: all 0.35s ease;
+}
+
+.password-requirements li.active {
+  opacity: 1;
+  transform: translateY(0);
+  color: #2f855a;
+  font-weight: 500;
+}
+
+.password-requirements li.active::before {
+  content: "✓ ";
+  color: #38a169;
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.password-requirements li:not(.active)::before {
+  content: "✗ ";
+  color: #e53e3e;
+  position: absolute;
+  left: 0;
+}
+
+/* Optional: nicer look when password is strong overall */
+#password:valid ~ .password-requirements {
+  border-color: #9ae6b4;
+  background: #f0fff4;
+}
